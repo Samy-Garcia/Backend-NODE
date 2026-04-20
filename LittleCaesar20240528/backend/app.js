@@ -8,12 +8,20 @@ import registerCustomerRoutes from "./src/routes/registerCustomer.js"
 import registerEmployeeRoutes from "./src/routes/registerEmployee.js"
 import loginCustomerRoutes from "./src/routes/loginCustomer.js"
 import logoutRoutes from "./src/routes/logout.js"
+import cors from "cors"
 
 import cookieParser from "cookie-parser"
 
 //creo una constante app que es una instancia de express, esto me permite usar todas las funcionalidades de express para crear mi servidor y manejar rutas, middlewares, etc.
 
 const app = express();
+
+app.use(cors({
+    origin: ["http://localhost:5173", "http://localhost:5174"],
+    //permitir el envio de cookies y credenciales
+    credentials: true
+}));
+
 app.use(cookieParser());
 
 //para que la api acepte json
