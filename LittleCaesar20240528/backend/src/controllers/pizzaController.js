@@ -7,7 +7,7 @@ const pizzaController = {};
 
 //impoto el schema que voy a utilizar
 
-import pizza from "../models/pizzas.js";
+import pizzaModel from "../models/pizzas.js";
 
 //SELECT
 pizzaController.getPizzas = async (req, res) => {
@@ -27,7 +27,7 @@ pizzaController.insertPizza = async (req, res) => {
         stock
     });
     //Guardar en la base de datos
-     awaitnewPizza.save();
+     await newPizza.save();
 
      res.json({message: "Pizza insertada correctamente" });   
 }
