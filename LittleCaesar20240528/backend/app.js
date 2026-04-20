@@ -6,6 +6,8 @@ import reviewRoutes from "./src/routes/reviews.js"
 import customerRoutes from "./src/routes/customer.js"
 import registerCustomerRoutes from "./src/routes/registerCustomer.js"
 import registerEmployeeRoutes from "./src/routes/registerEmployee.js"
+import loginCustomerRoutes from "./src/routes/loginCustomer.js"
+import logoutRoutes from "./src/routes/logout.js"
 
 import cookieParser from "cookie-parser"
 
@@ -24,6 +26,7 @@ app.use("/api/reviews", reviewRoutes);
 app.use("/api/customers", customerRoutes);
 app.use("/api/registerCustomer", registerCustomerRoutes);
 app.use("/api/registerEmployee", registerEmployeeRoutes);
-
+app.use("/api/loginCustomer", loginCustomerRoutes);
+app.use("/api/logout", logoutRoutes);
 
 export default app;
