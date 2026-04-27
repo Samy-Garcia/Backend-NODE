@@ -15,6 +15,38 @@ customerController.getAllCustomers = async (req, res) => {
     };
 };
 
+//INSERT
+customerController.createCustomer = async (req, res) => {
+    try {
+        let { name, lastName, birthDate, email, password } = req.body;
+        //Validar
+        //Sanitizar
+        name = name.trim();
+        email = email.trim();
+        //validar campos requeridos
+        if (!name || !email || !password) {
+            return res.status(400).json({ message: 'All fields are required' });
+        }
+        //longitud de campos
+        if (name.length < 3 || name.length > 15) {
+            return res.status(400).json({ message: 'Name must be between 3 and 15 characters' });
+        }
+
+        const newCustomer = new customerModel({
+            name,
+            lastName,
+            birthDate,
+            email,
+            password
+        });
+
+        const savedCustomer = await newCustomer.save();
+        return res.status(201).json({ message: 'Customer created successfully', customer: savedCustomer });
+    } catch (error) {
+        console.log("error", error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+};
 
 //UPDATE
 customerController.updateCustomer = async (req, res) => {
