@@ -7,8 +7,7 @@ import HTMLRecoveryEmail from "../utils/sendMaildRecovery.js";
 
 import { config } from "../../config.js";
 
-import customerModel from "../models/customers";
-import e from "express";
+import customerModel from "../models/customers.js";
 
 //Array de funciones
 
