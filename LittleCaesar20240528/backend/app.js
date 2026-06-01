@@ -11,6 +11,8 @@ import logoutRoutes from "./src/routes/logout.js"
 import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js"
 import providerRoutes from "./src/routes/provider.js"
 import cartRoutes from "./src/routes/cart.js"
+import wompiRoutes from "./src/routes/wompi.js"
+import deliveriesRoutes from "./src/routes/deliveries.js"
 import cors from "cors"
 
 import cookieParser from "cookie-parser"
@@ -42,5 +44,7 @@ app.use("/api/logout", logoutRoutes);
 app.use("/api/recoveryPassword", recoveryPasswordRoutes);
 app.use("/api/providers", providerRoutes);
 app.use("/api/cart", cartRoutes);
+app.use("/api/wompi", wompiRoutes);
+app.use("/api/deliveries", deliveriesRoutes);
 
 export default app;
